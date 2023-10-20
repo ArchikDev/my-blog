@@ -12,10 +12,16 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import ru.archik.my_blog.navigation.NavigationState
+import ru.archik.my_blog.navigation.Screen
+import ru.archik.my_blog.navigation.rememberNavigationState
 import ru.archik.my_blog.presentation.components.TextFieldRow
 
 @Composable
-fun AuthScreen() {
+fun AuthScreen(
+  navigationState: NavigationState
+) {
   val typeAuthRegister = rememberSaveable {
     mutableStateOf(false)
   }
@@ -33,9 +39,9 @@ fun AuthScreen() {
         .height(50.dp),
         onClick = { 
           if (typeAuthRegister.value) {
-            // TODO
+            navigationState.navigateTo(Screen.Post.route)
           } else {
-            // TODO
+            navigationState.navigateTo(Screen.Posts.route)
           }
         }) {
         Text(text = if (typeAuthRegister.value) "Зарегистрироваться" else "Войти")
