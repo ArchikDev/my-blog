@@ -1,9 +1,12 @@
 package ru.archik.my_blog.data.network
 
 import retrofit2.http.GET
-import retrofit2.http.Query
+import ru.archik.my_blog.data.model.PostDto
 
 interface ApiService {
+
+  @GET("posts")
+  suspend fun getPosts(): List<PostDto>
 
 //  @GET("newsfeed.getRecommended?v=5.131")
 //  suspend fun loadRecommendations(

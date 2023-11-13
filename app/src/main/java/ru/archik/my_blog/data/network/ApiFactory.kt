@@ -5,6 +5,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
+import ru.archik.my_blog.utils.BASE_URL
 
 object ApiFactory {
   // Логирование
@@ -15,7 +16,7 @@ object ApiFactory {
     .build()
 
   private val retrofit = Retrofit.Builder()
-    .baseUrl("http://localhost:1337/api/")
+    .baseUrl(BASE_URL)
     .addConverterFactory(GsonConverterFactory.create())
     .client(okHttpClient)
     .build()

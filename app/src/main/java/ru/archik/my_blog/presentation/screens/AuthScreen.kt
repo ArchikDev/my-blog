@@ -33,6 +33,7 @@ fun AuthScreen(
       verticalArrangement = Arrangement.Center
     ) {
       if (!typeAuthRegister.value) SignInFields() else SignUpFields()
+
       Spacer(modifier = Modifier.height(15.dp))
       Button(modifier = Modifier
         .fillMaxWidth()
